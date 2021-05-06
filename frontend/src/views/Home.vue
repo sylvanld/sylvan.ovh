@@ -2,16 +2,23 @@
   <v-container>
     <v-row style="align-items: center">
       <v-col cols="auto" md="8">
-        <img
-          src="https://media-exp1.licdn.com/dms/image/C4D03AQEv5pwuqH27wA/profile-displayphoto-shrink_100_100/0/1592516435483?e=1625702400&v=beta&t=Blk4ad1rNtLA2pDgeCqWQJO-afDqtJ16Xsghl_RVeUE"
-          alt="photo-of-me-(lol)"
-          style="border-radius: 50%"
-        />
-        <h1>Hi there!</h1>
-        <h2>
-          I am <a href="https://github.com/sylvanld">@hoshiyosan</a> (Sylvan Le
-          Deunff)
-        </h2>
+        <header style="display: flex; align-item: center">
+          <img
+            src="https://media-exp1.licdn.com/dms/image/C4D03AQEv5pwuqH27wA/profile-displayphoto-shrink_100_100/0/1592516435483?e=1625702400&v=beta&t=Blk4ad1rNtLA2pDgeCqWQJO-afDqtJ16Xsghl_RVeUE"
+            alt="photo-of-me-(lol)"
+            style="border-radius: 50%; margin-right: 1.5em"
+          />
+          <div>
+            <h1>Hi there!</h1>
+            <h2>
+              I am <a href="https://github.com/sylvanld">@hoshiyosan</a> (Sylvan
+              Le Deunff)
+            </h2>
+          </div>
+        </header>
+
+        <hr style="margin: 1.5em auto" />
+
         <p>
           I currently work as a software engineer at Orange Business Services
           (in France).
