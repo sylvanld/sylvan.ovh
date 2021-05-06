@@ -45,8 +45,25 @@ export default {
 }
 
 .panel-card {
-  width: 35em;
-  height: 15em;
-  margin-bottom: 3em;
+  margin: 1%;
+  min-height: 12em;
+}
+
+@media screen and (max-width: 875px) {
+  .panel-card {
+    width: 98%;
+  }
+}
+
+@media screen and (min-width: 875px) and (max-width: 1264px) {
+  .panel-card {
+    width: 48%;
+  }
+}
+
+@media screen and (min-width: 1264px) and (max-width: 10000px) {
+  .panel-card {
+    width: 31.33%;
+  }
 }
 </style>

@@ -4,6 +4,7 @@
     <v-app style="padding-top: 8em">
       <router-view />
     </v-app>
+    Sylvan Le Deunff - All right reserved © 2021
   </div>
 </template>
 
