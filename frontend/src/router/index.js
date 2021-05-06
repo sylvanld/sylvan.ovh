@@ -22,6 +22,10 @@ const routes = [
     path: '/curriculum',
     name: 'Curriculum',
     component: Curriculum
+  },
+  {
+    path: '*',
+    redirect: { name: 'Home' }
   }
 ]
 
