@@ -20,18 +20,6 @@ spec:
           image: sylvanld/portfolio-frontend:${DEPLOYED_VERSION}
           ports:
             - containerPort: 80
-          env:
-            - name: GITHUB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: portfolio-secret
-                  key: GITHUB_USERNAME
-              
-            - name: GITHUB_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: portfolio-secret
-                  key: GITHUB_TOKEN
 
 ---
 apiVersion: v1
@@ -84,6 +72,18 @@ spec:
           image: sylvanld/portfolio-backend:${DEPLOYED_VERSION}
           ports:
             - containerPort: 80
+          env:
+            - name: GITHUB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: portfolio-secret
+                  key: GITHUB_USERNAME
+              
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: portfolio-secret
+                  key: GITHUB_TOKEN
 
 ---
 apiVersion: v1
