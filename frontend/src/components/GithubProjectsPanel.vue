@@ -1,12 +1,18 @@
 <template>
-  <v-container class="panel">
-    <github-project-card
-      v-for="(project, index) in showcasedRepositories"
-      class="panel-card"
-      :key="index"
-      :project="project"
-    />
-  </v-container>
+  <div>
+    <form action="">
+      <v-text-field label="Browse projects..." append-icon="mdi-magnify" />
+    </form>
+
+    <div class="panel">
+      <github-project-card
+        v-for="(project, index) in showcasedRepositories"
+        class="panel-card"
+        :key="index"
+        :project="project"
+      />
+    </div>
+  </div>
 </template>
 
 <script>

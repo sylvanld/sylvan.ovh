@@ -1,3 +1,4 @@
+from typing import List
 from pydantic import BaseModel
 from datetime import datetime
 from dataclasses import dataclass
@@ -13,6 +14,7 @@ class Repository(APIModel):
     name: str
     full_name: str
     description: str = None
+    topics: List[str] = []
 
     license: str = None
     forked: bool

@@ -6,25 +6,27 @@
 
         <v-card-subtitle v-text="project.description"></v-card-subtitle>
 
+        <github-project-topics :topics="project.topics" />
+
         <v-card-actions>
           <v-btn
             class="ml-2 mt-5"
             outlined
-            rounded
             small
             :href="project.repository_url"
-            target="blank"
+            target="source"
           >
             VIEW SOURCE</v-btn
           >
 
           <v-btn
             class="ml-2 mt-5"
+            color="accent"
             outlined
-            rounded
             small
             v-if="project.showcase_url"
             :href="project.showcase_url"
+            target="demo"
           >
             OPEN DEMO</v-btn
           >
@@ -35,7 +37,10 @@
 </template>
 
 <script>
+import GithubProjectTopics from "@/components/GithubProjectTopics";
+
 export default {
+  components: { GithubProjectTopics },
   props: {
     project: Object,
   },

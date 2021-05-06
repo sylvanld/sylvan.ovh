@@ -16,6 +16,7 @@ def load_repository(data: dict) -> Repository:
         name=data["name"],
         full_name=data["full_name"],
         description=data["description"],
+        topics=data["topics"],
         license=data["license"].get("name") if data["license"] else None,
         private=data["private"],
         forked=data["fork"],
@@ -36,7 +37,7 @@ class Github(requests.Session):
         self.base_url = "https://api.github.com"
         self.username = username
         self.auth = (username, access_token)
-        self.headers = {"Accept": "application/vnd.github.v3+json"}
+        self.headers = {"Accept": "application/vnd.github.mercy-preview+json"}
 
     def request(self, method, url, *args, **kwargs):
         url = urljoin(self.base_url, url)
@@ -49,6 +50,11 @@ class Github(requests.Session):
         with open("toto.json", "w") as toto:
             json.dump(response.json(), toto, indent=4)
         return [load_repository(repo_data) for repo_data in response.json()]
+
+    """
+    def get_topics(self, owner, repo):
+        result = self.get(f'/repos/{owner}/{repo}/topics', headers={"Accept": "application/vnd.github.mercy-preview+json"})
+    """
 
 
 if __name__ == "__main__":
