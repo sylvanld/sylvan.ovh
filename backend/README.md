@@ -1,10 +1,32 @@
+# Backend
 
-## Deployment
-
-Create a kubernetes secret containing sensitive information required by backend.
-
-```bash
-kubectl create secret generic portfolio-secret --from-literal='GITHUB_USERNAME=<something>' --from-literal='GITHUB_TOKEN=<something>'
+## Project setup
+```
+pipenv install --dev
 ```
 
-Then you can deploy portfolio services using `deployment.yml` manifest.
+### Compiles and hot-reloads for development
+```
+pipenv run serve
+```
+
+### Lints and fixes files
+```
+pipenv run lint
+```
+
+## Docker image
+
+### Build image
+```
+docker build -t portfolio-backend .
+```
+
+### Run image
+```pylint
+docker run -p 8000:80 -e GITHUB_USERNAME -e GITHUB_TOKEN portfolio-backend
+```
+
+with
+- **GITHUB_USERNAME**: name of the user repos will be fetched when looking for projects.
+- **GITHUB_TOKEN**: personal access token that allow read only access to github API for given user.
