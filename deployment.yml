@@ -54,7 +54,7 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-    - host: test2.sylvan.ovh
+    - host: sylvan.ovh
       http:
         paths:
           - path: /
@@ -106,7 +106,7 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-    - host: api.test2.sylvan.ovh
+    - host: api.sylvan.ovh
       http:
         paths:
           - path: /
