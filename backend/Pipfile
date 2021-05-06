@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+requests = "*"
+
+[dev-packages]
+black = "*"
+pytest = "*"
+pylint = "*"
+
+[scripts]
+serve = "uvicorn src.application:api --host 0.0.0.0 --port 8000 --reload"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true

@@ -1,0 +1,115 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-frontend
+  labels:
+    app: portfolio-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portfolio-frontend
+  template:
+    metadata:
+      labels:
+        app: portfolio-frontend
+    spec:
+      containers:
+        - name: portfolio-frontend
+          image: sylvanld/portfolio-frontend:${DEPLOYED_VERSION}
+          ports:
+            - containerPort: 80
+          env:
+            - name: GITHUB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: portfolio-secret
+                  key: GITHUB_USERNAME
+              
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: portfolio-secret
+                  key: GITHUB_TOKEN
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-frontend-service
+spec:
+  selector:
+    app: portfolio-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: portfolio-frontend-ingress
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+    - host: test2.sylvan.ovh
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: portfolio-frontend-service
+              servicePort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-backend
+  labels:
+    app: portfolio-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portfolio-backend
+  template:
+    metadata:
+      labels:
+        app: portfolio-backend
+    spec:
+      containers:
+        - name: portfolio-backend
+          image: sylvanld/portfolio-backend:${DEPLOYED_VERSION}
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-backend-service
+spec:
+  selector:
+    app: portfolio-backend
+  ports:
+    - protocol: TCP
+      port: 80
+
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: portfolio-backend-ingress
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+    - host: api.test2.sylvan.ovh
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: portfolio-backend-service
+              servicePort: 80
