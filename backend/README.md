@@ -1,8 +1,15 @@
 # Backend
 
 ## Project setup
+Install development dependencies
 ```
 pipenv install --dev
+```
+
+Create a `.env` file containing dev settings
+```toml
+GITHUB_USERNAME=<github-username>
+GITHUB_TOKEN=<personal-access-token>
 ```
 
 ### Compiles and hot-reloads for development
