@@ -32,7 +32,7 @@
     </v-btn>
 
     <template v-slot:extension>
-      <v-tabs align-with-title>
+      <v-tabs>
         <v-tab :to="{ name: 'Home' }">Presentation</v-tab>
         <v-tab :to="{ name: 'Projects' }">Projects</v-tab>
         <v-tab :to="{ name: 'Curriculum' }">Curriculum</v-tab>
