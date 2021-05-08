@@ -45,6 +45,10 @@
           <v-icon>mdi-school</v-icon>
           Curriculum
         </v-tab>
+        <v-tab :to="{ name: 'Blog' }">
+          <v-icon>mdi-file-document-edit</v-icon>
+          Blog
+        </v-tab>
       </v-tabs>
     </template>
   </v-app-bar>
