@@ -33,10 +33,36 @@
 
     <template v-slot:extension>
       <v-tabs>
-        <v-tab :to="{ name: 'Home' }">Presentation</v-tab>
-        <v-tab :to="{ name: 'Projects' }">Projects</v-tab>
-        <v-tab :to="{ name: 'Curriculum' }">Curriculum</v-tab>
+        <v-tab :to="{ name: 'Home' }">
+          <v-icon>mdi-emoticon-outline</v-icon>
+          Presentation
+        </v-tab>
+        <v-tab :to="{ name: 'Projects' }">
+          <v-icon>mdi-presentation</v-icon>
+          Projects
+        </v-tab>
+        <v-tab :to="{ name: 'Curriculum' }">
+          <v-icon>mdi-school</v-icon>
+          Curriculum
+        </v-tab>
       </v-tabs>
     </template>
   </v-app-bar>
 </template>
+
+<style scoped>
+.v-icon {
+  margin-right: 0.5em;
+}
+
+@media screen and (max-width: 800px) {
+  .v-tab {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7em;
+  }
+  .v-icon {
+    margin-right: 0;
+  }
+}
+</style>
