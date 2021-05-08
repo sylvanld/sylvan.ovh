@@ -9,7 +9,7 @@
             style="border-radius: 50%; margin-right: 1.5em"
           />
           <div>
-            <h1>Hi there!</h1>
+            <p style="font-size: 2em; font-weight: bold">Hi there!</p>
             <h2>
               I am <a href="https://github.com/sylvanld">@hoshiyosan</a> (Sylvan
               Le Deunff)
