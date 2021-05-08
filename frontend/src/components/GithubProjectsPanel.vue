@@ -86,7 +86,6 @@ export default {
   display: flex !important;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .panel-card {

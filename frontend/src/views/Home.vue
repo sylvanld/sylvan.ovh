@@ -6,13 +6,21 @@
           <img
             src="https://media-exp1.licdn.com/dms/image/C4D03AQEv5pwuqH27wA/profile-displayphoto-shrink_100_100/0/1592516435483?e=1625702400&v=beta&t=Blk4ad1rNtLA2pDgeCqWQJO-afDqtJ16Xsghl_RVeUE"
             alt="photo-of-me-(lol)"
-            style="border-radius: 50%; margin-right: 1.5em"
+            style="
+              width: 7em;
+              height: 7em;
+              border-radius: 50%;
+              margin-right: 1.5em;
+            "
           />
           <div>
-            <h1>Hi there!</h1>
+            <p style="font-size: 2em; font-weight: bold">Hi there!</p>
             <h2>
-              I am <a href="https://github.com/sylvanld">@hoshiyosan</a> (Sylvan
-              Le Deunff)
+              I am
+              <a href="https://github.com/hoshiyosan" target="github">
+                @hoshiyosan
+              </a>
+              (Sylvan Le Deunff)
             </h2>
           </div>
         </header>

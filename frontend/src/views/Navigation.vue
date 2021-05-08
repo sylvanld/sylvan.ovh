@@ -5,7 +5,9 @@
     color="deep-purple accent-4"
     dark
   >
-    <v-toolbar-title>Sylvan LE DEUNFF</v-toolbar-title>
+    <v-toolbar-title>
+      <h1 style="font-size: 1.25rem">Sylvan LE DEUNFF</h1>
+    </v-toolbar-title>
 
     <v-spacer></v-spacer>
 
