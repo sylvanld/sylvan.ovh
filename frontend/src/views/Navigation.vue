@@ -6,7 +6,7 @@
     dark
   >
     <v-toolbar-title>
-      <h1 style="font-size: 1.5em">Sylvan Le Deunff</h1>
+      <h1 style="font-size: 1.25rem">Sylvan LE DEUNFF</h1>
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
