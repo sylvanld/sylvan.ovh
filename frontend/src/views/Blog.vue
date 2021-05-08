@@ -1,13 +1,13 @@
 <template>
   <main class="layout">
-    <aside class="navigation">
-      <blog-navigation :posts="blogPosts" />
-    </aside>
-
     <main class="content">
       <h2>Article title</h2>
       <router-view />
     </main>
+
+    <aside class="navigation">
+      <blog-navigation :posts="blogPosts" />
+    </aside>
   </main>
 </template>
 
@@ -42,8 +42,15 @@ main.layout {
   display: flex;
 }
 
+@media screen and (max-width: 600px) {
+  main.layout {
+    flex-direction: column;
+  }
+}
+
 main.content {
   flex: 3;
+  padding-left: 2em;
 }
 
 aside.navigation {
