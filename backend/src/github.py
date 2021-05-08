@@ -45,16 +45,7 @@ class Github(requests.Session):
 
     def get_my_repositories(self):
         response = self.get(f"/users/{self.username}/repos")
-        import json
-
-        with open("toto.json", "w") as toto:
-            json.dump(response.json(), toto, indent=4)
         return [load_repository(repo_data) for repo_data in response.json()]
-
-    """
-    def get_topics(self, owner, repo):
-        result = self.get(f'/repos/{owner}/{repo}/topics', headers={"Accept": "application/vnd.github.mercy-preview+json"})
-    """
 
 
 if __name__ == "__main__":
