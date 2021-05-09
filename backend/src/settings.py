@@ -1,4 +1,5 @@
 from os import getenv
 
+BLOG_REPOSITORY = getenv("BLOG_REPOSITORY") 
 GITHUB_USERNAME = getenv("GITHUB_USERNAME") 
 GITHUB_TOKEN = getenv("GITHUB_TOKEN")
