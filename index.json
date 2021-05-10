@@ -1,11 +1,11 @@
 {
     "articles": [
         {
-            "code": "string",
-            "title": "string",
+            "code": "mon-post",
+            "title": "Mon poste de blog",
             "published": false,
             "created_at": "2021-05-10T03:07:46.006361",
-            "updated_at": "2021-05-10T03:07:46.006366"
+            "updated_at": "2021-05-10T03:08:16.528073"
         }
     ]
 }
