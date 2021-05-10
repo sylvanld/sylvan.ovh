@@ -49,6 +49,10 @@
           <v-icon>mdi-file-document-edit</v-icon>
           Blog
         </v-tab>
+
+        <v-spacer />
+
+        <v-tab :to="{ name: 'BlogAdminArticles' }"> Admin </v-tab>
       </v-tabs>
     </template>
   </v-app-bar>

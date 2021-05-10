@@ -1,7 +1,6 @@
 <template>
   <main class="layout">
     <main class="content">
-      <h2>Article title</h2>
       <router-view />
     </main>
 

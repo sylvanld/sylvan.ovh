@@ -9,13 +9,16 @@
 
       <v-list-item-group active-class="pink--text" multiple>
         <template v-for="post in posts">
-          <v-list-item :key="post.title">
+          <v-list-item
+            :key="post.title"
+            :to="{ name: 'ReadArticle', params: { articleCode: post.code } }"
+          >
             <template v-slot:default>
               <v-list-item-content>
                 <v-list-item-title v-text="post.title"></v-list-item-title>
 
                 <v-list-item-subtitle
-                  v-text="humanReadableDate(post.date)"
+                  v-text="humanReadableDate(post.updated_at)"
                 ></v-list-item-subtitle>
               </v-list-item-content>
             </template>
@@ -23,6 +26,7 @@
         </template>
       </v-list-item-group>
 
+      <!--
       <v-subheader class="accent--text">
         <h4>Suggested articles</h4>
       </v-subheader>
@@ -42,18 +46,28 @@
           </v-list-item>
         </template>
       </v-list-item-group>
+      -->
     </v-list>
   </main>
 </template>
 
 <script>
 export default {
-  props: {
-    posts: Array,
+  data() {
+    return { posts: [] };
+  },
+  mounted() {
+    this.refreshPosts();
   },
   methods: {
     humanReadableDate(date) {
       return date.toLocaleString();
+    },
+    refreshPosts() {
+      this.$store.dispatch("blog/getArticles").then((posts) => {
+        this.posts = posts;
+        console.log(this.posts);
+      });
     },
   },
 };

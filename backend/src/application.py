@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from typing import List
-from src.models import Repository, IndexArticle, CreateArticle, UpdateArticle, DeleteArticle
+from src.models import Repository, IndexArticle, FullArticle, EditArticle
 from src.extensions import github, blog
 
 api = FastAPI(
@@ -22,18 +22,22 @@ api.add_middleware(
 def get_my_repositories():
     return github.get_my_repositories()
 
+@api.get("/blog/articles/{code}", response_model=FullArticle)
+def get_blog_article(code: str):
+    return blog.get_article(code)
+
 @api.get("/blog/articles", response_model=List[IndexArticle])
 def get_blog_article():
     return blog.get_articles()
 
 @api.post("/blog/articles")
-def create_blog_article(data: CreateArticle):
-    blog.create_article(data.article_name, data.article_content)
+def create_blog_article(article: EditArticle):
+    blog.create_article(article.code, article.title, article.content)
 
-@api.put("/blog/articles")
-def update_blog_article(data: UpdateArticle):
-    return blog.update_article(data.old_name, data.new_name, data.article_content)
+@api.put("/blog/articles/{code}")
+def update_blog_article(code: str, article: EditArticle):
+    return blog.update_article(code, article.code, article.title, article.content)
 
-@api.delete("/blog/articles")
-def delete_blog_post(data: DeleteArticle):
-    blog.delete_article(data.article_name)
+@api.delete("/blog/articles/{code}")
+def delete_blog_post(code: str):
+    blog.delete_article(code)

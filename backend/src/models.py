@@ -10,26 +10,26 @@ class APIModel(BaseModel):
 
 
 class IndexArticle(BaseModel):
-    article_name: str
+    code: str
+    title: str
+    published: bool = False
     created_at: datetime
     updated_at: datetime
+
+
+class FullArticle(IndexArticle):
+    content: str
 
 
 class IndexData(BaseModel):
     articles: List[IndexArticle] = []
 
 
-class CreateArticle(BaseModel):
-    article_name: str
-    article_content: str
+class EditArticle(BaseModel):
+    code: str 
+    title: str
+    content: str
 
-class UpdateArticle(BaseModel):
-    old_name: str
-    new_name: str
-    article_content: str
-
-class DeleteArticle(BaseModel):
-    article_name: str
 
 class Repository(APIModel):
     id: int
