@@ -1,0 +1,5 @@
+<p>YAML article</p><pre><code class="language-plaintext">coucou:
+	salut:
+		- ca
+		- va
+		- ?</code></pre>

@@ -6,6 +6,13 @@
             "published": false,
             "created_at": "2021-05-10T03:39:58.757468",
             "updated_at": "2021-05-10T03:39:58.757475"
+        },
+        {
+            "code": "yet-another-article",
+            "title": "Yet another article",
+            "published": false,
+            "created_at": "2021-05-10T03:40:48.121075",
+            "updated_at": "2021-05-10T03:40:48.121080"
         }
     ]
 }
