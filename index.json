@@ -1,3 +1,11 @@
 {
-    "articles": []
+    "articles": [
+        {
+            "code": "is-this-a-good-article",
+            "title": "Is this a good article ?",
+            "published": false,
+            "created_at": "2021-05-10T03:39:58.757468",
+            "updated_at": "2021-05-10T03:39:58.757475"
+        }
+    ]
 }
