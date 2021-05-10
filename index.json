@@ -1,3 +1,11 @@
 {
-    "articles": []
+    "articles": [
+        {
+            "code": "salut-les-gens",
+            "title": "salut les gens",
+            "published": false,
+            "created_at": "2021-05-10T03:31:31.957373",
+            "updated_at": "2021-05-10T03:31:31.957381"
+        }
+    ]
 }
