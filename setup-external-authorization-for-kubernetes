@@ -1,0 +1,9 @@
+<h2>Deploy Kubernetes for testing</h2><h3>Create some VM using Vagrant</h3><p>You can use for example a Vagrantfile to create the following virtual machines</p><figure class="table"><table><thead><tr><th>hostname</th><th>role</th><th>ip address</th></tr></thead><tbody><tr><td>k8s-master</td><td>master</td><td>192.168.56.100</td></tr><tr><td>k8s-node1</td><td>worker</td><td>192.168.56.101</td></tr><tr><td>k8s-node2</td><td>worker</td><td>192.168.56.102</td></tr></tbody></table></figure><h3>Use the playbook to create a local cluster</h3><h4>Adapt default configuration</h4><p>Create inventory file at <i>config/inventory</i>.</p><pre><code class="language-plaintext">[masters]
+192.168.56.100
+[nodes]
+192.168.56.101
+192.168.56.102
+[cluster:children]
+masters
+nodes
+</code></pre><p>&nbsp;</p><h4>Deploy your cluster with ansible</h4><pre><code class="language-plaintext">ansible-playbook deploy-kubernetes.yml -i config/inventory</code></pre><p>&nbsp;</p><h2>Configure an authz webhook in K8S</h2><p>&nbsp;</p>
