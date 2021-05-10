@@ -8,13 +8,6 @@
             "updated_at": "2021-05-10T03:40:48.121080"
         },
         {
-            "code": "wonderful-first-article",
-            "title": "Wonderful first article !!",
-            "published": false,
-            "created_at": "2021-05-10T03:55:47.080694",
-            "updated_at": "2021-05-10T03:55:47.080701"
-        },
-        {
             "code": "setup-external-authorization-for-kubernetes",
             "title": "Setup external authorization for Kubernetes",
             "published": false,

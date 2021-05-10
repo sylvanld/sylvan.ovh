@@ -1,5 +1,0 @@
-<h2>This article</h2><p>Use all features that I integrated until now!</p><figure class="table"><table><thead><tr><th>That's</th><th>great</th></tr></thead><tbody><tr><th>Hell</th><td>Yeah!</td></tr></tbody></table></figure><p>A <i>little</i> bit of <strong>everything</strong></p><p>To <s>show</s> <u>demonstrate</u> how it works</p><ul><li>list</li><li>or others stuff</li></ul><p>&nbsp;</p><ol><li>even linked list with <a href="https://forum.vuejs.org/t/how-do-i-make-an-html-tag-inside-a-data-string-render-as-an-html-tag/13074">links</a></li><li>or <a href="https://www.youtube.com/watch?v=BzWQQ5Z2ysA">youtube video</a> I am watching</li></ol><p>&nbsp;</p><pre><code class="language-plaintext">coucou:
-	salut:
-		- ca
-		- va
-		- ?</code></pre>
