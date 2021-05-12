@@ -1,13 +1,15 @@
 <template>
-  <main class="layout">
-    <main class="content">
-      <router-view />
-    </main>
+  <v-container>
+    <v-row>
+      <v-col cols="auto" md="8" sm="12">
+        <router-view />
+      </v-col>
 
-    <aside class="navigation">
-      <blog-navigation :posts="blogPosts" />
-    </aside>
-  </main>
+      <v-col cols="auto" md="4" sm="12">
+        <blog-navigation :posts="blogPosts" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -35,24 +37,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-main.layout {
-  display: flex;
-}
-
-@media screen and (max-width: 600px) {
-  main.layout {
-    flex-direction: column;
-  }
-}
-
-main.content {
-  flex: 3;
-  padding-left: 2em;
-}
-
-aside.navigation {
-  flex: 1;
-}
-</style>
