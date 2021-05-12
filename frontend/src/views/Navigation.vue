@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     src="@/assets/navigation-theme.jpg"
-    style="position: fixed; z-index: 9999; background-size: cover"
+    style="background-size: cover"
     color="deep-purple accent-4"
     dark
   >
