@@ -9,6 +9,28 @@ class APIModel(BaseModel):
         orm_mode = True
 
 
+class IndexArticle(BaseModel):
+    code: str
+    title: str
+    published: bool = False
+    created_at: datetime
+    updated_at: datetime
+
+
+class FullArticle(IndexArticle):
+    content: str
+
+
+class IndexData(BaseModel):
+    articles: List[IndexArticle] = []
+
+
+class EditArticle(BaseModel):
+    code: str 
+    title: str
+    content: str
+
+
 class Repository(APIModel):
     id: int
     name: str

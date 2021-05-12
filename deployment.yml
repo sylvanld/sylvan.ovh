@@ -73,6 +73,9 @@ spec:
           ports:
             - containerPort: 80
           env:
+            - name: BLOG_REPOSITORY
+              value: https://github.com/sylvanld/sylvan.ovh
+            
             - name: GITHUB_USERNAME
               valueFrom:
                 secretKeyRef:
