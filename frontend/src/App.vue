@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <navigation />
-    <v-app style="padding-top: 8em">
+    <navigation style="position: fixed; z-index: 9999" />
+    <v-app>
       <router-view />
+
+      <footer>Sylvan Le Deunff - All right reserved © 2021</footer>
     </v-app>
-    Sylvan Le Deunff - All right reserved © 2021
   </div>
 </template>
 
@@ -15,3 +16,14 @@ export default {
   components: { Navigation },
 };
 </script>
+
+<style>
+.v-application--wrap {
+  padding-top: 8em;
+}
+
+.v-application--wrap footer {
+  position: absolute;
+  bottom: 0;
+}
+</style>
