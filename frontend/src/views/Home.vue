@@ -4,8 +4,8 @@
       <v-col cols="auto" md="8">
         <header style="display: flex; align-item: center">
           <img
-            src="https://media-exp1.licdn.com/dms/image/C4D03AQEv5pwuqH27wA/profile-displayphoto-shrink_100_100/0/1592516435483?e=1625702400&v=beta&t=Blk4ad1rNtLA2pDgeCqWQJO-afDqtJ16Xsghl_RVeUE"
-            alt="photo-of-me-(lol)"
+            src="@/assets/sylvan.png"
+            alt="profile-picture"
             style="
               width: 7em;
               height: 7em;
