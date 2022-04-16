@@ -1,4 +1,18 @@
 ---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: sylvan-ovh
+spec:
+  secretName: sylvan-ovh-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  commonName: sylvan.ovh
+  dnsNames:
+  - sylvan.ovh
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -40,6 +54,7 @@ metadata:
   name: portfolio-frontend-ingress
   annotations:
     kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/cluster-issuer: "letsencrypt"
 spec:
   rules:
     - host: sylvan.ovh
@@ -49,6 +64,25 @@ spec:
             backend:
               serviceName: portfolio-frontend-service
               servicePort: 80
+              
+  tls:
+    - secretName: sylvan-ovh-tls
+      hosts:
+        - sylvan.ovh
+
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: api-sylvan-ovh
+spec:
+  secretName: api-sylvan-ovh-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  commonName: api.sylvan.ovh
+  dnsNames:
+  - api.sylvan.ovh
 
 ---
 apiVersion: apps/v1
@@ -104,6 +138,7 @@ metadata:
   name: portfolio-backend-ingress
   annotations:
     kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/cluster-issuer: "letsencrypt"
 spec:
   rules:
     - host: api.sylvan.ovh
@@ -113,3 +148,7 @@ spec:
             backend:
               serviceName: portfolio-backend-service
               servicePort: 80
+  tls:
+    - secretName: api-sylvan-ovh-tls
+      hosts:
+        - api.sylvan.ovh
