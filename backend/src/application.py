@@ -4,10 +4,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from src.models import Repository
 from src.extensions import github
+from src.settings import OPENAPI_URL
 
 api = FastAPI(
     title="Showcase site API",
     info={"contact": {"name": "Sylvan Le Deunff", "email": "sledeunf@gmail.com"}},
+    docs_url=OPENAPI_URL,
 )
 api.add_middleware(
     CORSMiddleware,
