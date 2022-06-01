@@ -1,18 +1,4 @@
 ---
-apiVersion: cert-manager.io/v1alpha2
-kind: Certificate
-metadata:
-  name: sylvan-ovh
-spec:
-  secretName: sylvan-ovh-tls
-  issuerRef:
-    name: letsencrypt
-    kind: ClusterIssuer
-  commonName: sylvan.ovh
-  dnsNames:
-  - sylvan.ovh
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -39,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: portfolio-frontend-service
+  name: portfolio-frontend
 spec:
   selector:
     app: portfolio-frontend
@@ -48,41 +34,21 @@ spec:
       port: 80
 
 ---
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
-  name: portfolio-frontend-ingress
-  annotations:
-    kubernetes.io/ingress.class: "traefik"
-    cert-manager.io/cluster-issuer: "letsencrypt"
+  name: portfolio-frontend
 spec:
-  rules:
-    - host: sylvan.ovh
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: portfolio-frontend-service
-              servicePort: 80
-              
-  tls:
-    - secretName: sylvan-ovh-tls
-      hosts:
-        - sylvan.ovh
-
----
-apiVersion: cert-manager.io/v1alpha2
-kind: Certificate
-metadata:
-  name: api-sylvan-ovh
-spec:
-  secretName: api-sylvan-ovh-tls
-  issuerRef:
-    name: letsencrypt
-    kind: ClusterIssuer
-  commonName: api.sylvan.ovh
-  dnsNames:
-  - api.sylvan.ovh
+  entryPoints:
+    - web
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`sylvan.ovh`)
+    services:
+    - kind: Service
+      name: portfolio-frontend
+      port: 80
 
 ---
 apiVersion: apps/v1
@@ -123,7 +89,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: portfolio-backend-service
+  name: portfolio-backend
 spec:
   selector:
     app: portfolio-backend
@@ -132,23 +98,18 @@ spec:
       port: 80
 
 ---
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
-  name: portfolio-backend-ingress
-  annotations:
-    kubernetes.io/ingress.class: "traefik"
-    cert-manager.io/cluster-issuer: "letsencrypt"
+  name: portfolio-backend
 spec:
-  rules:
-    - host: api.sylvan.ovh
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: portfolio-backend-service
-              servicePort: 80
-  tls:
-    - secretName: api-sylvan-ovh-tls
-      hosts:
-        - api.sylvan.ovh
+  entryPoints:
+    - web
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`api.sylvan.ovh`)
+    services:
+    - kind: Service
+      name: portfolio-frontend
+      port: 80
